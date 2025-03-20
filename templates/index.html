@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Notas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestión de Notas</h1>
+        <h2>Alumnos</h2>
+        <ul>
+            {% for alumno in alumnos %}
+                <li>
+                    {{ alumno.nombre }} {{ alumno.apellido }} - 
+                    <a href="{{ url_for('agregar_calificacion', alumno_id=alumno.alumno_id) }}">Agregar Calificación</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('agregar') }}">Agregar Alumno</a>
+    </div>
+</body>
+</html>
